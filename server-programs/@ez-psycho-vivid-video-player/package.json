@@ -1,0 +1,14 @@
+{
+  "name": "@ez-psycho-server/vivid-video-player",
+  "version": "0.0.1",
+  "description": "Video playback component with timeline alignment.",
+  "main": "main.js",
+  "clientTypeId": "VP",
+  "clientTypeName": "vivid video player client",
+  "functionListName": "Video player",
+  "author": "Losses Don",
+  "license": "MIT",
+  "dependencies": {
+    "@ez-trigger/server": "https://github.com/ezPsycho/ezTrigger-server.git"
+  }
+}

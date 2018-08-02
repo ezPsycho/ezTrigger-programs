@@ -1,0 +1,15 @@
+{
+  "name": "@ez-psycho-server/rest-screen",
+  "version": "0.0.1",
+  "description": "A rest screen based on ezTrigger system.",
+  "main": "main.js",
+  "clientTypeId": "RST",
+  "clientTypeName": "resting state client",
+  "functionListName": "Rest screen",
+  "author": "Losses Don",
+  "license": "MIT",
+  "dependencies": {
+    "@ez-trigger/server": "https://github.com/ezPsycho/ezTrigger-server.git",
+    "nanotimer": "^0.3.15"
+  }
+}

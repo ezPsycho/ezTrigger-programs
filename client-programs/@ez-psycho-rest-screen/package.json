@@ -1,0 +1,10 @@
+{
+  "name": "@ez-psycho-clients/rest-screen",
+  "version": "0.0.1",
+  "description": "A rest screen based on ezTrigger system.",
+  "typeName": "RST",
+  "main": "index.html",
+  "author": "Losses Don",
+  "license": "MIT",
+  "fullscreen": true
+}

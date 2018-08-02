@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Dynamic evaluation @ez-trigger</title>
+  <link rel="stylesheet" type="text/css" href="ez://init.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <audio class="audio_player">
+    <source src="prog://bell.wav" type="audio/wav">
+  </audio>
+  <div class="waiting screen big_text">Waiting for the server</div>
+  <div class="scale screen hide">
+    <div class="scale_body">
+        <div class="negative_text scale_text"></div>
+        <div class="ruler">
+          <div class="negative_side ruler_side"></div>
+          <div class="ruler_cell ruler_cell_zero">
+              <img src="prog://pointer.svg" class="pointer current" data-scale="0"/>
+          </div>
+          <div class="positive_side ruler_side"></div>
+        </div>
+        <div class="positive_text scale_text"></div>
+    </div>
+  </div>
+  <div class="end screen hide big_text">
+      Waiting for the operator
+  </div>
+
+  <script src="ez://init.js"></script>
+  <script src="ez://ezNirsTrigger.js"></script>
+  <script src="script.js"></script>
+</body>

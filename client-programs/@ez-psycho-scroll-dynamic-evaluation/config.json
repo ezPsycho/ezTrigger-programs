@@ -1,0 +1,7 @@
+{
+  "positiveText": "Completely Aggree",
+  "negativeText": "Completely Disagree",
+  "scales": 10,
+  "direction": "vertical",
+  "rulerBorder": 2
+}

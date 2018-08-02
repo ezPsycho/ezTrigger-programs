@@ -1,0 +1,15 @@
+{
+  "name": "@ez-psycho-server/scroll-dynamic-evaluation",
+  "version": "0.0.1",
+  "description": "A topic dynamic evaluation module for ezTrigger system.",
+  "main": "main.js",
+  "clientTypeId": "DYE",
+  "clientTypeName": "dynamic evaluation client",
+  "functionListName": "Dynamic evaluation",
+  "author": "Losses Don",
+  "license": "MIT",
+  "dependencies": {
+    "@ez-trigger/server": "https://github.com/ezPsycho/ezTrigger-server.git",
+    "nanotimer": "^0.3.15"
+  }
+}

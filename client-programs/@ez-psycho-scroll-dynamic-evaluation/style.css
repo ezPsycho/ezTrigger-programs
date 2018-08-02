@@ -1,0 +1,158 @@
+body,
+.scale_body {
+  width: 100%;
+}
+
+.scale_body {
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+}
+
+.ruler,
+.ruler_side,
+.scale_body {
+  display: flex;
+}
+
+.scale_text {
+  margin: 15px;
+  flex-shrink: 0;
+}
+
+.ruler_side,
+.ruler_cell {
+  border-width: var(--ruler-border);
+  border-color: #444;
+}
+
+.ruler_cell {
+  position: relative;
+}
+
+.ruler_cell_zero {
+  border: 0;
+}
+
+.pointer {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+}
+
+.pointer.current {
+  opacity: 1;
+}
+
+.v .scale_body,
+.v .ruler,
+.v .ruler_side,
+.v .ruler_cell {
+  height: 100%;
+  flex-direction: column-reverse;
+}
+
+.v .ruler,
+.v .ruler_side {
+  width: 10px;
+}
+
+.v .ruler_cell {
+  width: 4px;
+}
+
+.v .positive_side {
+  border-style: solid none solid solid;
+}
+
+.v .negative_side {
+  border-style: none none solid solid;
+}
+
+.v .ruler_cell {
+  border-style: none none solid none;
+}
+
+.v .ruler_side > .ruler_cell:first-of-type {
+  border-style: none;
+}
+
+.v .ruler_cell_zero {
+  height: 0;
+}
+
+.v .pointer {
+  transform: rotate(90deg);
+  left: calc(-20px - var(--ruler-border) / 2);
+}
+
+.v .positive_side .pointer {
+  top: calc(-10px - var(--ruler-border) / 2);
+}
+
+.v .negative_side .pointer {
+  bottom: calc(-10px - var(--ruler-border) / 2);
+}
+
+.v .ruler_cell_zero .pointer {
+  top: calc(-10px - var(--ruler-border) / 2);
+  left: calc(-20px + var(--ruler-border) / 2);
+}
+
+
+.h .scale_body,
+.h .ruler,
+.h .ruler_side,
+.h .ruler_cell {
+  width: 100%;
+}
+
+.h .positive_side {
+  border-style: none solid solid none;
+}
+
+.h .negative_side {
+  border-style: none solid solid solid;
+}
+
+.h .ruler_cell {
+  border-style: none solid none none;
+}
+
+.h .ruler_side > .ruler_cell:last-of-type {
+  border-style: none;
+}
+
+.h .ruler_side {
+  height: 10px;
+  align-items: flex-end;
+}
+
+.h .ruler_cell {
+  height: 4px;
+  width: 100%;
+}
+
+.h .ruler_cell_zero {
+  width: 0px;
+  background: red;
+  height: calc(8px + var(--ruler-border));
+}
+
+.h .pointer {
+  bottom: calc(-20px - var(--ruler-border) / 2);
+}
+
+.h .positive_side .pointer {
+  right: calc(-10px - var(--ruler-border) / 2);
+}
+
+.h .negative_side .pointer {
+  left: calc(-10px - var(--ruler-border) / 2);
+}
+
+.h .ruler_cell_zero .pointer {
+  right: calc(-10px + var(--ruler-border) / 2);
+  bottom: calc(-20px + var(--ruler-border) / 2);
+}

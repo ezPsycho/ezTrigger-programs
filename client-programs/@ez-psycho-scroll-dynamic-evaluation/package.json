@@ -1,0 +1,10 @@
+{
+  "name": "@ez-psycho-clients/scroll-dynamic-evaluation",
+  "version": "0.0.1",
+  "description": "A topic dynamic evaluation module for ezTrigger system.",
+  "main": "index.html",
+  "typeName": "DYE",
+  "author": "Losses Don",
+  "license": "MIT",
+  "fullscreen": true
+}

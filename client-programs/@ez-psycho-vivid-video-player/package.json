@@ -1,0 +1,10 @@
+{
+  "name": "@ez-psycho-clients/vivid-video-player",
+  "version": "0.0.1",
+  "description": "Video playback component with timeline alignment.",
+  "main": "index.html",
+  "typeName": "VP",
+  "author": "Losses Don",
+  "license": "MIT",
+  "fullscreen": true
+}
