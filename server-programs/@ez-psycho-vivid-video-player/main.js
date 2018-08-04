@@ -14,6 +14,8 @@ class VividVideoPlayer {
         fn: this.pause.bind(this)
       }
     ];
+
+    this.server.registerDebugCommand(['PS']);
   }
 
   start() {

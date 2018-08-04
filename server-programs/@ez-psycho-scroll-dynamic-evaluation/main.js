@@ -19,6 +19,8 @@ class DynamicEvaluation {
         fn: this.stop.bind(this)
       }
     ];
+
+    this.server.registerDebugCommand(['DING']);
   }
 
   start() {
