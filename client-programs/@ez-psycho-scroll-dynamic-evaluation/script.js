@@ -70,6 +70,7 @@
     allowScroll = true;
     waitScreen.classList.add('hide');
     scaleScreen.classList.remove('hide');
+    ezTrigger.addRecord({position: '0'});
     playSound();
   });
 

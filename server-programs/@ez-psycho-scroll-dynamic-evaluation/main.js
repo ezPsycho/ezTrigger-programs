@@ -45,7 +45,7 @@ class DynamicEvaluation {
           this.server.broadcast('DING', 'DYE');
           this.logger.log(i(`Ding ${dingCount}.`));
         } else {
-          this.timer.clearInterval();
+          this.killTimer();
           this.server.broadcast('EN', 'TRG');
           this.server.broadcast('EN', 'DYE');
           this.logger.log(i(`Finished the dynamic scroll experiment, will send EN to all DYE and TRG client.`)); // prettier-ignore
@@ -65,7 +65,7 @@ class DynamicEvaluation {
 
   killTimer() {
     if (!isNull(this.timer)) {
-      this.timer.clearTimeout();
+      this.timer.clearInterval();
     }
   }
 }

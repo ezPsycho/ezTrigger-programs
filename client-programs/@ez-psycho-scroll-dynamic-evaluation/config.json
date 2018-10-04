@@ -1,5 +1,5 @@
 {
-  "positiveText": "Completely Aggree",
+  "positiveText": "Completely Agree",
   "negativeText": "Completely Disagree",
   "scales": 10,
   "direction": "vertical",
