@@ -8,7 +8,5 @@
   "functionListName": "Video player",
   "author": "Losses Don",
   "license": "MIT",
-  "dependencies": {
-    "@ez-trigger/server": "https://github.com/ezPsycho/ezTrigger-server.git"
-  }
+  "dependencies": {}
 }

@@ -1,14 +1,9 @@
-import { isNull } from 'util';
-
-import nanoTimer from 'nanotimer';
-
-import { w, i } from '@ez-trigger/server';
+import { w, i, Repeat } from '~server';
 
 class DynamicEvaluation {
   constructor(server) {
     this.server = server;
     this.logger = server.logger;
-    this.timer = null;
     this.fns = [
       {
         name: 'Start',
@@ -20,53 +15,36 @@ class DynamicEvaluation {
       }
     ];
 
+    this.dingSender = new Repeat(this.ding.bind(this), '2s', 6);
+
     this.server.registerDebugCommand(['DING']);
   }
 
-  start() {
-    let dingCount;
-    
-    this.killTimer();
-    this.timer = new nanoTimer();
+  ding() {
+    this.server.broadcast('DING', 'TRG');
+    this.server.broadcast('DING', 'DYE');
 
-    dingCount = 0;
+    this.logger.log(i(`Ding ${this.dingSender.count}.`));
+  }
 
+  async start() {
     this.server.broadcast('ST', 'TRG');
     this.server.broadcast('ST', 'DYE');
 
     this.logger.log(i('All DYE, TRG client will receive start signal.'));
 
-    this.timer.setInterval(
-      () => {
-        dingCount++;
+    await this.dingSender.run();
 
-        if (dingCount < 6) {
-          this.server.broadcast('DING', 'TRG');
-          this.server.broadcast('DING', 'DYE');
-          this.logger.log(i(`Ding ${dingCount}.`));
-        } else {
-          this.killTimer();
-          this.server.broadcast('EN', 'TRG');
-          this.server.broadcast('EN', 'DYE');
-          this.logger.log(i(`Finished the dynamic scroll experiment, will send EN to all DYE and TRG client.`)); // prettier-ignore
-        }
-      },
-      '',
-      '2s'
-    );
+    this.server.broadcast('EN', 'TRG');
+    this.server.broadcast('EN', 'DYE');
+    this.logger.log(i(`Finished the dynamic scroll experiment, will send EN to all DYE and TRG client.`)); // prettier-ignore
   }
 
   stop() {
-    this.killTimer();
+    this.dingSender.kill();
     this.server.broadcast('EN', 'TRG');
     this.server.broadcast('EN', 'DYE');
     this.logger.log(w('Sending end signal to all DYE and TRG client.'));
-  }
-
-  killTimer() {
-    if (!isNull(this.timer)) {
-      this.timer.clearInterval();
-    }
   }
 }
 

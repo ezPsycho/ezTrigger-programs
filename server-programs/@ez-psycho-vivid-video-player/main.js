@@ -1,4 +1,4 @@
-import { i } from '@ez-trigger/server';
+import { i } from '~server';
 
 class VividVideoPlayer {
   constructor(server) {
