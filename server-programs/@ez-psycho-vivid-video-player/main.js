@@ -19,16 +19,12 @@ class VividVideoPlayer {
   }
 
   start() {
-    this.server.broadcast('ST', 'TRG');
-    this.server.broadcast('ST', 'VP');
-
+    this.server.broadcast('ST', ['TRG', 'VP']);
     this.logger.log(i('All VP, TRG client will receive start signal.'));
   }
 
   pause() {
-    this.server.broadcast('PS', 'TRG');
-    this.server.broadcast('PS', 'VP');
-
+    this.server.broadcast('PS', ['TRG', 'VP']);
     this.logger.log(i('All VP, TRG client will receive pause signal.'));
   }
 }

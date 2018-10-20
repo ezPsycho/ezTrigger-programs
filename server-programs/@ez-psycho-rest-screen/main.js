@@ -20,8 +20,7 @@ class RestScreen {
   }
 
   sendEnd() {
-    this.server.broadcast('EN', 'TRG');
-    this.server.broadcast('EN', 'RST');
+    this.server.broadcast('EN', ['TRG', 'RST']);
     this.logger.log(i('Sending end signal to all RST and TRG client.'));
   }
 
@@ -29,16 +28,14 @@ class RestScreen {
     this.endSender.kill();
 
     this.logger.log(i('All RST, TRG client will receive start signal.'));
-    this.server.broadcast('ST', 'TRG');
-    this.server.broadcast('ST', 'RST');
+    this.server.broadcast('ST', ['TRG', 'RST']);
 
     this.endSender.run();
   }
 
   stop() {
     this.endSender.kill();
-    this.server.broadcast('EN', 'TRG');
-    this.server.broadcast('EN', 'RST');
+    this.server.broadcast('EN', ['TRG', 'RST']);
     this.logger.log(w('Will force stop the RST and TRG.'));
   }
 }

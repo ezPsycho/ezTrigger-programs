@@ -21,29 +21,24 @@ class DynamicEvaluation {
   }
 
   ding() {
-    this.server.broadcast('DING', 'TRG');
-    this.server.broadcast('DING', 'DYE');
+    this.server.broadcast('DING', ['TRG', 'DYE']);
 
     this.logger.log(i(`Ding ${this.dingSender.count}.`));
   }
 
   async start() {
-    this.server.broadcast('ST', 'TRG');
-    this.server.broadcast('ST', 'DYE');
-
+    this.server.broadcast('ST', ['TRG', 'DYE']);
     this.logger.log(i('All DYE, TRG client will receive start signal.'));
 
     await this.dingSender.run();
 
-    this.server.broadcast('EN', 'TRG');
-    this.server.broadcast('EN', 'DYE');
+    this.server.broadcast('EN', ['TRG', 'DYE']);
     this.logger.log(i(`Finished the dynamic scroll experiment, will send EN to all DYE and TRG client.`)); // prettier-ignore
   }
 
   stop() {
     this.dingSender.kill();
-    this.server.broadcast('EN', 'TRG');
-    this.server.broadcast('EN', 'DYE');
+    this.server.broadcast('EN', ['TRG', 'DYE']);
     this.logger.log(w('Sending end signal to all DYE and TRG client.'));
   }
 }
