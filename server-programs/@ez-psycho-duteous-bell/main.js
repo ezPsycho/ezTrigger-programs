@@ -2,14 +2,29 @@ import { w, i, Delay, Repeat } from '~server';
 import Player from 'play-sound';
 import path from 'path';
 
-const player =  Player();
+const player = Player({ player: "cmdmp3" });
 
 class RestScreen {
   constructor(server, manifest) {
     this.server = server;
     this.logger = server.logger;
 
-    this.fns = [];
+    this.fns = [
+      {
+        name: `Send ST`,
+        fn: (() => {
+          this.server.broadcast('LK', ['TRG']);
+          this.server.broadcast('ST', ['TRG']);
+        }).bind(this)
+      },
+      {
+        name: `Send EN`,
+        fn: (() => {
+          this.server.broadcast('EN', ['TRG']);
+          this.server.broadcast('UL', ['TRG']);
+        }).bind(this)
+      }
+    ];
     this.timer = null;
 
     if (manifest.times && manifest.times.forEach) {
@@ -57,15 +72,16 @@ class RestScreen {
 
     await this.timer.run();
 
-    this.server.broadcast('ST', ['TRG']);
+    this.server.broadcast(`MK ST ${time}`, ['TRG']);
     this.playSound();
     this.logger.log(i('Sending start signal to all TRG client.'));
 
     this.timer = new Delay((
       () => {
-        this.server.broadcast('EN', ['TRG']);
+        this.server.broadcast(`MK EN ${time}`, ['TRG']);
         this.playSound();
         this.logger.log(i('Sending end signal to all TRG client.'));
+        this.timer = null;
       }
     ).bind(this), time);
 
@@ -74,6 +90,7 @@ class RestScreen {
 
   killTimer() {
     if (this.timer && this.timer.kill) {
+      this.server.broadcast(`MK KILL`, ['TRG']);
       this.timer.kill();
       this.timer = null;
       this.logger.log(i(`Killed previous timer.`));
