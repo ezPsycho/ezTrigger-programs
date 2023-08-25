@@ -6,8 +6,14 @@
   "functionListName": "Timing bell",
   "author": "Losses Don",
   "license": "MIT",
-  "times": ["30s", "60s", "300s", "600s", "5s"],
+  "times": [
+    "30s",
+    "60s",
+    "300s",
+    "600s",
+    "5s"
+  ],
   "dependencies": {
-    "play-sound": "^1.1.3"
+    "play-sound": "^1.1.6"
   }
 }
